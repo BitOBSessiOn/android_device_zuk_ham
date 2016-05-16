@@ -23,10 +23,10 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/zuk/ham/dt.img
 
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/zuk/ham/kernel
+#TARGET_PREBUILT_KERNEL := device/zuk/ham/kernel
 # else uncomment below to build from sauce
-# TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8974
-# TARGET_KERNEL_CONFIG := k9_defconfig
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8974
+TARGET_KERNEL_CONFIG := cyanogenmod_k9_defconfig
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 20971520
@@ -49,6 +49,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 #TWRP flags
 DEVICE_RESOLUTION := 1080x1920
+TW_THEME := portrait_hdpi
+TW_THEME_LANDSCAPE := landscape_hdpi
 #TW_TARGET_USES_QCOM_BSP := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
@@ -58,3 +60,26 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 #RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_VARIANT := twrp
+
+#MultiROM config. MultiROM also uses parts of TWRP config
+TARGET_RECOVERY_IS_MULTIROM := true
+MR_INPUT_TYPE := type_a
+MR_INIT_DEVICES := device/zuk/ham/multirom/mr_init_devices.c
+MR_DPI := xhdpi
+MR_DPI_FONT := 340
+MR_FSTAB := device/zuk/ham/recovery.fstab
+MR_KEXEC_MEM_MIN := 0x02000000
+#0x03000000
+MR_USE_MROM_FSTAB := true
+MR_KEXEC_DTB := true
+#MR_INFOS := device/zuk/ham/multirom/mrom_infos
+MR_DEVICE_HOOKS := device/zuk/ham/multirom/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 4
+MR_CONTINUOUS_FB_UPDATE := true
+MR_USE_QCOM_OVERLAY := true
+MR_QCOM_OVERLAY_HEADER := device/zuk/ham/include/framebuffer_qcom_overlay.h
+MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
+MR_PIXEL_FORMAT := "RGBX_8888"
+MR_DEVICE_VARIANTS := Z1 K9
+MR_ENCRYPTION := true
+
