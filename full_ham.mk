@@ -30,7 +30,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 #PRODUCT_COPY_FILES += \
 #    device/zuk/ham/kernel:kernel
 
-PRODUCT_NAME := omni_ham
+PRODUCT_NAME := full_ham
 PRODUCT_DEVICE := ham
 PRODUCT_BRAND := zuk
 PRODUCT_MODEL := Z1
