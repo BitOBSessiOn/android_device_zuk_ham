@@ -18,19 +18,19 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
+#$(call inherit-product, vendor/bliss/config/gsm.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/bliss/config/common.mk)
 
 # Disabled if NO prebuilt kernel
 #PRODUCT_COPY_FILES += \
 #    device/zuk/ham/kernel:kernel
 
-PRODUCT_NAME := full_ham
+PRODUCT_NAME := bliss_ham
 PRODUCT_DEVICE := ham
 PRODUCT_BRAND := zuk
 PRODUCT_MODEL := Z1
